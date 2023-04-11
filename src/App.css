@@ -1,7 +1,7 @@
 .App {
-  margin: 100px;
+  margin: 200px auto;
   border: 1px solid #e3e3e3;
-  width: 60vw;
+  width: 40vw;
 }
 header {
   display: flex;
@@ -28,7 +28,7 @@ li {
 .todoInput {
   width: 80%;
   border: 1px solid #e3e3e3;
-  padding: 5px;
+  padding: 10px;
 }
 .submitButton {
   width: 20%;
