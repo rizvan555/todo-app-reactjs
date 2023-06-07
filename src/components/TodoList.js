@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { BsTrash3Fill } from "react-icons/bs";
 
@@ -13,10 +14,19 @@ const TodoList = () => {
     setInputValue(event.target.value);
   };
 
-  const addTodo = (e) => {
+  const addTodo = async (e) => {
     e.preventDefault();
     setTodos([...todos, inputValue]);
     setInputValue("");
+
+    try {
+      const response = await axios.post("/todoContainer/todos", {
+        todo: inputValue,
+      });
+      console.log("New todo added:", response.data);
+    } catch (error) {
+      console.error("Error adding todo:", error);
+    }
   };
 
   const drowLine = (index, checked) => {
@@ -58,7 +68,6 @@ const TodoList = () => {
       </ul>
       <form className="input-container" onSubmit={addTodo}>
         <input
-          an
           type="text"
           placeholder="Add Todo ..."
           className="todoInput"
